@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Client } from 'boardgame.io/react';
+import { Game } from 'boardgame.io/core';
+import DollHouseBoard,{ROWS, COLS, SIZE} from "./DollHouseBoard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const DollHouse = Game({
+  setup: () => ({ 
+    cells: Array(ROWS*COLS).fill((0)),
+    pivot: null,
+    sw: 3,
+    sh: 3,
+    reserve: [] 
+  }),
+
+  moves: {
+    clickCell(G, ctx, R, C) {
+      G.reserve.push({r:R, c:C, w: G.sw, h: G.sh, l:0});
+      console.log(G.reserve);
+    },
+  },
+});
+
+const App = Client({ game: DollHouse, board: DollHouseBoard });
 
 export default App;

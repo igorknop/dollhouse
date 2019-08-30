@@ -1,0 +1,9 @@
+
+#board {
+    background-color: lightblue;
+    position: relative;
+}
+.room{
+    position: absolute;
+    background-color: lightpink;
+}
