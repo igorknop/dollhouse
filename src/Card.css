@@ -1,0 +1,19 @@
+.card {
+    width: 80px;
+    height: calc(80px*88/63);
+    display: flex;
+    border: 1px black solid;
+    padding: 2px;
+    border-radius: 5px;
+}
+.card.selected{
+    border: 1px red solid;
+    font-weight: bold;
+}
+.card > div{
+    margin: 5px;
+}
+#cardselect .card:first-child{
+    background-color: yellow;
+    font-weight: bold;
+}

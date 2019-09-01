@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from "./Card";
 import "./DollHouseBoard.css";
 import logo from "./dollhouse-and-write.png";
 
@@ -14,16 +15,17 @@ export const CARDS = [
 
     { id: 7, name: "toilet", w: 1, h: 1 },
     { id: 8, name: "shower", w: 1, h: 3 },
-    
-    { id: 9, name: "bed", w: 3, h: 6 },
-    { id: 10, name: "tv", w: 1, h: 1 },
+    { id: 9, name: "bathtub", w: 3, h: 1 },
 
-    { id: 11, name: "coach", w: 3, h: 1 },
-    { id: 12, name: "table", w: 3, h: 2 },
-    { id: 13, name: "big-tv", w: 2, h: 1 },
+    { id: 10, name: "bed", w: 3, h: 1 },
+    { id: 11, name: "tv", w: 1, h: 1 },
 
-    { id: 14, name: "stove", w: 2, h: 2 },
-    { id: 15, name: "kitchen-table", w: 2, h: 2 },
+    { id: 12, name: "coach", w: 3, h: 1 },
+    { id: 13, name: "table", w: 3, h: 2 },
+    { id: 14, name: "big-tv", w: 2, h: 1 },
+
+    { id: 15, name: "stove", w: 2, h: 2 },
+    { id: 16, name: "kitchen-table", w: 2, h: 2 },
 
     { id: 16, name: "bench", w: 2, h: 1 },
     { id: 17, name: "plant", w: 1, h: 2 },
@@ -32,8 +34,8 @@ export const CARDS = [
 
 
 
-    
-    
+
+
 ];
 
 
@@ -43,8 +45,8 @@ export default class DollHouseBoard extends React.Component {
         const rect = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        console.log("click>",rect, e.pageX, e.clientX, e.offsetX);
-        
+        console.log("click>", rect, e.pageX, e.clientX, e.offsetX);
+
         const C = Math.floor(x / SIZE);
         const R = Math.floor(y / SIZE);
         console.log("onclick", x, y, R, C);
@@ -55,6 +57,10 @@ export default class DollHouseBoard extends React.Component {
         this.props.moves.clickCard(cn);
     }
 
+    onCardSelect(cn) {
+        console.log('onCardSelect', cn);
+        this.props.moves.selectCard(cn);
+    }
     onMouseMove(id) {
         if (this.isActive(id)) {
             this.props.moves.mouseOver(id);
@@ -69,8 +75,6 @@ export default class DollHouseBoard extends React.Component {
     }
 
     render() {
-        console.log(this.props.G.reserve);
-        
         let winner = '';
         if (this.props.ctx.gameover) {
             winner =
@@ -91,7 +95,7 @@ export default class DollHouseBoard extends React.Component {
 
         let cards = CARDS.map((c, k) => (
             <div className="card" key={"card" + c.id + k} onClick={() => { this.onCardClick(c.id) }}>
-                <div>{c.id}</div> 
+                <div>{c.id}</div>
                 <div>{c.name}</div>
                 <div>{c.w}x{c.h}</div>
             </div>
@@ -101,13 +105,23 @@ export default class DollHouseBoard extends React.Component {
 
         return (
             <div id="dollhouse-game">
-                <img src={logo} alt="Dollhouse & Write" height="180"/>
-                <div id="paper" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }}>
-                    <div id="board" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
+                <img id="logo" src={logo} alt="Dollhouse & Write" height="180" />
+                <div id="cardroll">
+                    <Card card={CARDS[this.props.G.card1]} onCardSelect={() => {this.onCardSelect(0) }} selected={this.props.G.cardSelected === 0} />
+                    <Card card={CARDS[this.props.G.card2]} onCardSelect={() => { this.onCardSelect(1) }} selected={this.props.G.cardSelected === 1} />
+                    <Card card={CARDS[this.props.G.card3]} onCardSelect={() => { this.onCardSelect(2) }} selected={this.props.G.cardSelected === 2} />
+                </div>
+                <div id="paper" style={{ width: (COLS + 2) * SIZE, height: ROWS * SIZE }}>
+                    <div id="board" style={{ width: (COLS + 2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
                         {itens}
                     </div>
                 </div>
-                <div id="cards">
+                <div id="scoresheet">
+                    <div>Bed Room</div>
+                    <div>Kitchen</div>
+                    <div>Bathroom</div>
+                </div>
+                <div id="cardselector">
                     {cards[this.props.G.cn]}
                     {cards}
                 </div>
