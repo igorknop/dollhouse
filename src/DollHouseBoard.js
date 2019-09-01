@@ -1,5 +1,6 @@
 import React from 'react';
 import "./DollHouseBoard.css";
+import logo from "./dollhouse-and-write.png";
 
 export const CARDS = [
     { id: 0, name: "permit", w: 12, h: 9 },
@@ -39,8 +40,11 @@ export const CARDS = [
 export const [ROWS, COLS, SIZE] = [11, 12, 40];
 export default class DollHouseBoard extends React.Component {
     onClick(e) {
-        const x = e.pageX;
-        const y = e.pageY;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        console.log("click>",rect, e.pageX, e.clientX, e.offsetX);
+        
         const C = Math.floor(x / SIZE);
         const R = Math.floor(y / SIZE);
         console.log("onclick", x, y, R, C);
@@ -96,9 +100,12 @@ export default class DollHouseBoard extends React.Component {
 
 
         return (
-            <div>
-                <div id="board" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
-                    {itens}
+            <div id="dollhouse-game">
+                <img src={logo} alt="Dollhouse & Write" height="180"/>
+                <div id="paper" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }}>
+                    <div id="board" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
+                        {itens}
+                    </div>
                 </div>
                 <div id="cards">
                     {cards[this.props.G.cn]}
