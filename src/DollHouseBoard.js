@@ -2,14 +2,41 @@ import React from 'react';
 import "./DollHouseBoard.css";
 
 export const CARDS = [
-    { id: 0, name: "roof", w: 3, h: 1, color: "lightgreen" },
-    { id: 1, name: "small room", w: 3, h: 3, color: "lightpink" },
-    { id: 2, name: "medium room", w: 5, h: 3, color: "pink" },
-    { id: 3, name: "big room", w: 7, h: 3, color: "darkpink" },
+    { id: 0, name: "permit", w: 12, h: 9 },
+
+    { id: 1, name: "roof", w: 3, h: 1 },
+    { id: 2, name: "small-room", w: 3, h: 3 },
+    { id: 3, name: "medium-room", w: 5, h: 3 },
+    { id: 4, name: "big-room", w: 7, h: 3 },
+    { id: 5, name: "tall-room", w: 3, h: 6 },
+    { id: 6, name: "doll", w: 1, h: 2 },
+
+    { id: 7, name: "toilet", w: 1, h: 1 },
+    { id: 8, name: "shower", w: 1, h: 3 },
+    
+    { id: 9, name: "bed", w: 3, h: 6 },
+    { id: 10, name: "tv", w: 1, h: 1 },
+
+    { id: 11, name: "coach", w: 3, h: 1 },
+    { id: 12, name: "table", w: 3, h: 2 },
+    { id: 13, name: "big-tv", w: 2, h: 1 },
+
+    { id: 14, name: "stove", w: 2, h: 2 },
+    { id: 15, name: "kitchen-table", w: 2, h: 2 },
+
+    { id: 16, name: "bench", w: 2, h: 1 },
+    { id: 17, name: "plant", w: 1, h: 2 },
+    { id: 18, name: "painting", w: 1, h: 1 },
+
+
+
+
+    
+    
 ];
 
 
-export const [ROWS, COLS, SIZE] = [9, 12, 40];
+export const [ROWS, COLS, SIZE] = [11, 12, 40];
 export default class DollHouseBoard extends React.Component {
     onClick(e) {
         const x = e.clientX;
@@ -56,7 +83,7 @@ export default class DollHouseBoard extends React.Component {
                 left: (r.c * SIZE - 8) + "px",
                 top: (r.r * SIZE - 8) + "px",
                 backgroundColor: r.color,
-            }} className="room"></div>);
+            }} className={`room ${r.name}`}></div>);
 
         let cards = CARDS.map((c, k) => <div className="card" key={"card" + c.id + k} onClick={() => { this.onCardClick(c.id) }}>{c.id} {c.name}</div>)
 
@@ -64,7 +91,7 @@ export default class DollHouseBoard extends React.Component {
 
         return (
             <div>
-                <div id="board" style={{ width: COLS * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
+                <div id="board" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
                     {itens}
                 </div>
                 &rarr; {cards[this.props.G.cn]}

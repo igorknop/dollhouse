@@ -9,8 +9,8 @@ const DollHouse = Game({
     pivot: null,
     sw: 3,
     sh: 3,
-    cn: 0,
-    reserve: [],
+    cn: 2,
+    reserve: [Object.assign({c:1, r:2},CARDS[0])],
     scolor: "lightpink"
   }),
 
