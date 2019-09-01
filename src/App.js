@@ -27,6 +27,6 @@ const DollHouse = Game({
   },
 });
 
-const App = Client({ game: DollHouse, board: DollHouseBoard });
+const App = Client({ game: DollHouse, board: DollHouseBoard, debug:false });
 
 export default App;
