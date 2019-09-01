@@ -39,8 +39,8 @@ export const CARDS = [
 export const [ROWS, COLS, SIZE] = [11, 12, 40];
 export default class DollHouseBoard extends React.Component {
     onClick(e) {
-        const x = e.clientX;
-        const y = e.clientY;
+        const x = e.pageX;
+        const y = e.pageY;
         const C = Math.floor(x / SIZE);
         const R = Math.floor(y / SIZE);
         console.log("onclick", x, y, R, C);
@@ -85,7 +85,13 @@ export default class DollHouseBoard extends React.Component {
                 backgroundColor: r.color,
             }} className={`room ${r.name}`}></div>);
 
-        let cards = CARDS.map((c, k) => <div className="card" key={"card" + c.id + k} onClick={() => { this.onCardClick(c.id) }}>{c.id} {c.name}</div>)
+        let cards = CARDS.map((c, k) => (
+            <div className="card" key={"card" + c.id + k} onClick={() => { this.onCardClick(c.id) }}>
+                <div>{c.id}</div> 
+                <div>{c.name}</div>
+                <div>{c.w}x{c.h}</div>
+            </div>
+        ));
 
 
 
@@ -94,8 +100,8 @@ export default class DollHouseBoard extends React.Component {
                 <div id="board" style={{ width: (COLS+2) * SIZE, height: ROWS * SIZE }} onClick={(e) => { this.onClick(e) }}>
                     {itens}
                 </div>
-                &rarr; {cards[this.props.G.cn]}
                 <div id="cards">
+                    {cards[this.props.G.cn]}
                     {cards}
                 </div>
             </div>

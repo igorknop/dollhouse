@@ -3,6 +3,21 @@
     background-color: lightgoldenrodyellow;
     position: relative;
 }
+
+.card{
+    display: flex;
+    border: 1px solid black;
+    padding: 2px;
+    width: 200px;
+}
+.card>div{
+    margin: 5px;
+}
+.card:first-child{
+    background-color: yellow;
+    font-weight: bold;
+}
+
 .room{
     position: absolute;
     background-color: lightpink;
