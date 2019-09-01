@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dollhouse/static/css/main.d233d1a1.chunk.css",
+    "main.js": "/dollhouse/static/js/main.1582cafc.chunk.js",
+    "main.js.map": "/dollhouse/static/js/main.1582cafc.chunk.js.map",
+    "runtime~main.js": "/dollhouse/static/js/runtime~main.55bdf1e3.js",
+    "runtime~main.js.map": "/dollhouse/static/js/runtime~main.55bdf1e3.js.map",
+    "static/js/2.214b1311.chunk.js": "/dollhouse/static/js/2.214b1311.chunk.js",
+    "static/js/2.214b1311.chunk.js.map": "/dollhouse/static/js/2.214b1311.chunk.js.map",
+    "index.html": "/dollhouse/index.html",
+    "precache-manifest.4af94d12111ab4b27ef29c2f44563c32.js": "/dollhouse/precache-manifest.4af94d12111ab4b27ef29c2f44563c32.js",
+    "service-worker.js": "/dollhouse/service-worker.js",
+    "static/css/main.d233d1a1.chunk.css.map": "/dollhouse/static/css/main.d233d1a1.chunk.css.map"
+  }
+}
