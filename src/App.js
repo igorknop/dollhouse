@@ -48,11 +48,22 @@ const DollHouse = Game({
           break;
       }
       console.log('select', G.cn);
+    },
+    endRound(G, ctx){
+      G.discard.push(G.card2);
+      G.discard.push(G.card2);
+      if(G.deck.length >0 ){
+        G.card2 = G.deck.splice(0,1)[0];
+      }
+      if(G.deck.length >0 ){
+        G.card3 = G.deck.splice(0,1)[0];
+      }
+      G.cardSelected = 0;
+      ctx.events.endTurn();
     }
-
   },
 });
 
-const App = Client({ game: DollHouse, board: DollHouseBoard, debug: false });
+const App = Client({ game: DollHouse, board: DollHouseBoard, debug: true, numPlayers:1 });
 
 export default App;

@@ -1,7 +1,6 @@
 .card {
     width: 80px;
     height: calc(80px*88/63);
-    display: flex;
     border: 1px black solid;
     padding: 2px;
     border-radius: 5px;
@@ -9,6 +8,7 @@
 .card.selected{
     border: 1px red solid;
     font-weight: bold;
+    background-color: lightpink;
 }
 .card > div{
     margin: 5px;

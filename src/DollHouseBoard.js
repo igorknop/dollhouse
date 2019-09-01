@@ -51,6 +51,7 @@ export default class DollHouseBoard extends React.Component {
         const R = Math.floor(y / SIZE);
         console.log("onclick", x, y, R, C);
         this.props.moves.clickCell(R, C);
+        this.props.moves.endRound();
     }
 
     onCardClick(cn) {
