@@ -6,4 +6,6 @@
 .room{
     position: absolute;
     background-color: lightpink;
+    border: 8px solid rgba(0,0,0,0.3);
+    background-clip: content-box;
 }

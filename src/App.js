@@ -1,21 +1,29 @@
 import { Client } from 'boardgame.io/react';
 import { Game } from 'boardgame.io/core';
-import DollHouseBoard,{ROWS, COLS, SIZE} from "./DollHouseBoard";
+import DollHouseBoard, { ROWS, COLS, SIZE, CARDS } from "./DollHouseBoard";
+
 
 const DollHouse = Game({
-  setup: () => ({ 
-    cells: Array(ROWS*COLS).fill((0)),
+  setup: () => ({
+    cells: Array(ROWS * COLS).fill((0)),
     pivot: null,
     sw: 3,
     sh: 3,
-    reserve: [] 
+    cn: 0,
+    reserve: [],
+    scolor: "lightpink"
   }),
 
   moves: {
     clickCell(G, ctx, R, C) {
-      G.reserve.push({r:R, c:C, w: G.sw, h: G.sh, l:0});
-      console.log(G.reserve);
+      const card = Object.assign({r: R-CARDS[G.cn].h+1, c:C}, CARDS[G.cn]);
+      console.log("clickcell",CARDS[G.cn], card);
+      console.log(R,C);
+      G.reserve.push( card);
     },
+    clickCard(G, ctx, cn) {
+      G.cn = cn;
+    }
   },
 });
 
