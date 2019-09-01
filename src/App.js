@@ -9,12 +9,12 @@ const DollHouse = Game({
     pivot: null,
     sw: 3,
     sh: 3,
-    cn: 2,
+    cn: 1,
     cardSelected: 0,
-    card1: 0,
-    card2: 1,
-    card3: 2,
-    deck: Array.from(Array(10).keys()).map(i => i + 3),
+    card1: 1,
+    card2: 2,
+    card3: 3,
+    deck: Array.from(Array(CARDS.length - 3).keys()).map(i => i + 3),
     discard: [],
     reserve: [Object.assign({ c: 1, r: 2 }, CARDS[0])],
     scolor: "lightpink"
@@ -43,20 +43,30 @@ const DollHouse = Game({
           G.cn = G.card3;
           break;
         default:
-            G.cardSelected = 1;
-            G.cn = G.card1;
+          G.cardSelected = 0;
+          G.cn = G.card1;
           break;
       }
       console.log('select', G.cn);
     },
-    endRound(G, ctx){
+    endRound(G, ctx) {
       G.discard.push(G.card2);
-      G.discard.push(G.card2);
-      if(G.deck.length >0 ){
-        G.card2 = G.deck.splice(0,1)[0];
+      G.discard.push(G.card3);
+      if (G.deck.length > 0) {
+        G.card2 = G.deck.splice(0, 1)[0];
+      } else {
+        shuffleArray(G.discard);
+        G.deck = G.discard;
+        G.discard = [];
+        G.card2 = G.deck.splice(0, 1)[0];
       }
-      if(G.deck.length >0 ){
-        G.card3 = G.deck.splice(0,1)[0];
+      if (G.deck.length > 0) {
+        G.card3 = G.deck.splice(0, 1)[0];
+      } else {
+        shuffleArray(G.discard);
+        G.deck = G.discard;
+        G.discard = [];
+        G.card3 = G.deck.splice(0, 1)[0];
       }
       G.cardSelected = 0;
       ctx.events.endTurn();
@@ -64,6 +74,15 @@ const DollHouse = Game({
   },
 });
 
-const App = Client({ game: DollHouse, board: DollHouseBoard, debug: true, numPlayers:1 });
+const App = Client({ game: DollHouse, board: DollHouseBoard, debug: true, numPlayers: 1 });
 
 export default App;
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}

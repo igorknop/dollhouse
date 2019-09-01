@@ -102,7 +102,9 @@ export default class DollHouseBoard extends React.Component {
             </div>
         ));
 
+        let discard = this.props.G.discard.map((c,k)=>(<div key={"discarted"+k} card={c}>{CARDS[c].name}</div>))
 
+        let deck = this.props.G.deck.map((c,k)=>(<div key={"deck"+k} card={c}>{CARDS[c].name}</div>))
 
         return (
             <div id="dollhouse-game">
@@ -121,6 +123,10 @@ export default class DollHouseBoard extends React.Component {
                     <div>Bed Room</div>
                     <div>Kitchen</div>
                     <div>Bathroom</div>
+                </div>
+                <div id="carddecks">
+                <div id="deck">Deck: {deck}</div>
+                <div id="discard">Discard: {discard}</div>
                 </div>
                 <div id="cardselector">
                     {cards[this.props.G.cn]}

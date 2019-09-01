@@ -4,11 +4,12 @@
     margin: auto;
     display: grid;
     grid-template-columns: 90px auto;
-    grid-template-rows: 25% auto auto auto;
+    grid-template-rows: 25% auto auto 25% auto;
     grid-template-areas:
         "logo logo"
         "cardroll paper"
         "scoresheet scoresheet"
+        "carddecks carddecks"
         "cardselector cardselector";
 }
 #logo{
@@ -46,6 +47,23 @@
     background-size:80px 80px;
     background-position: 20px;
     position: relative;
+}
+#carddecks{
+    grid-area: carddecks;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "deck discard";
+    
+}
+#discard, #deck{
+    overflow: scroll;
+
+}
+#discard{
+    grid-area: discard;
+}
+#deck{
+    grid-area: deck;
 }
 
 
