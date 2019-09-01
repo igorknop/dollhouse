@@ -14,7 +14,7 @@ const DollHouse = Game({
     card1: 1,
     card2: 2,
     card3: 3,
-    deck: Array.from(Array(CARDS.length - 3).keys()).map(i => i + 3),
+    deck: createDeck(CARDS),
     discard: [],
     reserve: [Object.assign({ c: 1, r: 2 }, CARDS[0])],
     scolor: "lightpink"
@@ -74,7 +74,7 @@ const DollHouse = Game({
   },
 });
 
-const App = Client({ game: DollHouse, board: DollHouseBoard, debug: true, numPlayers: 1 });
+const App = Client({ game: DollHouse, board: DollHouseBoard, debug: false, numPlayers: 1 });
 
 export default App;
 
@@ -85,4 +85,18 @@ function shuffleArray(array) {
     array[i] = array[j];
     array[j] = temp;
   }
+}
+
+function createDeck(cardtypes) {
+  let deck = [];
+  for (let i = 1; i < cardtypes.length; i++) {
+    for (let j = 0; j < cardtypes[i].q; j++) {
+      deck.push(cardtypes[i].id);
+    }
+  }
+  shuffleArray(deck);
+  console.log(deck);
+  
+  return deck;
+
 }
