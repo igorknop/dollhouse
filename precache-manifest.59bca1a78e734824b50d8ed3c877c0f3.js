@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bbdb8f3e2e680f578a7007571093e3c1",
+    "revision": "413828fe399df23b0fed838f18694240",
     "url": "/dollhouse/index.html"
   },
   {
-    "revision": "b16235c45d551782b5ce",
-    "url": "/dollhouse/static/css/main.590c0d5c.chunk.css"
+    "revision": "b45a26ced334a8a96c96",
+    "url": "/dollhouse/static/css/main.3a70516f.chunk.css"
   },
   {
     "revision": "87cba40fac64dccf9340",
     "url": "/dollhouse/static/js/2.1bb9287c.chunk.js"
   },
   {
-    "revision": "b16235c45d551782b5ce",
+    "revision": "b45a26ced334a8a96c96",
     "url": "/dollhouse/static/js/main.f02be3f3.chunk.js"
   },
   {
