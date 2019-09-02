@@ -89,7 +89,7 @@ function shuffleArray(array) {
 
 function createDeck(cardtypes) {
   let deck = [];
-  for (let i = 1; i < cardtypes.length; i++) {
+  for (let i = 2; i < cardtypes.length; i++) {
     for (let j = 0; j < cardtypes[i].q; j++) {
       deck.push(cardtypes[i].id);
     }

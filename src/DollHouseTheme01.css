@@ -1,0 +1,144 @@
+
+.room{
+    position: absolute;
+    background-color: lightpink;
+    border: 8px solid rgba(0,0,0,0.3);
+    background-clip: border-box;
+}
+
+.permit {
+    border-style: dotted;
+    background-color: rgba(255,255,200,0.4);
+}
+
+.roof{
+    background: transparent url(/icons01/roof.svg) repeat-x -18%;
+    background-size: 58%;
+    border-color: transparent;
+}
+.small-room{
+    background-color: rgba(255,0,0,0.2);
+}
+.medium-room{
+    background-color: rgba(255,0,0,0.4);
+}
+.big-room{
+    background-color: rgba(255,0,0,0.6);
+}
+.tall-room{
+    background-color: rgba(255,0,0,0.8);
+}
+.doll{
+    background: transparent url("/icons01/doll.svg") no-repeat 50%;
+    background-size:  190%;
+    border-color: transparent;
+    background-position: 37% 110%;
+}
+.toilet{
+    background: transparent url(/icons01/toilet.svg) no-repeat;
+    background-size: 150%;
+    border-color: transparent;
+    background-position: 51% 100%;
+}
+.shower{
+    background: transparent url(/icons01/shower.svg) no-repeat;
+    background-size: 80px;
+    border-color: transparent;
+    background-position: 51% 100%;
+}
+.bed{
+    background: transparent url("/icons01/bed.svg") no-repeat;
+    background-size: 67%;
+    border-color: transparent;
+    background-position: 50% 59%;
+}
+
+.tv{
+    background: transparent url(/icons01/tv.svg) no-repeat;
+    background-size: 123%;
+    border-color: transparent;
+    background-position: 0% 98%;
+}
+.toy{
+    background: transparent url("/icons01/toy.svg") no-repeat;
+    background-size: 123%;
+    border-color: transparent;
+    background-position: 0% 98%;
+}
+
+.sofa{
+    background: transparent url("/icons01/coach.svg") no-repeat;
+    background-size: 90%;
+    border-color: transparent;
+    background-position: 51% 40%;
+}
+.bookshelf{
+    background: transparent url("/icons01/bookshelf.svg") no-repeat;
+    background-size: 103%;
+    border-color: transparent;
+    background-position: 51% 40%;
+}
+
+.kitchen-table{
+    background: transparent url("/icons01/kitchen-table.svg") no-repeat;
+    background-size: 58%;
+    border-color: transparent;
+    background-position: 50% 59%;
+}
+.bench{
+    background: transparent url("/icons01/bench.svg") no-repeat;
+    background-size: 77%;
+    border-color: transparent;
+    background-position: 50% 59%;
+}
+.plant{
+    background: transparent url(/icons01/plant.svg) no-repeat;
+    background-size: 100%;
+    border-color: transparent;
+    background-position: 51% 100%;
+}
+.painting{
+    background: transparent url("/icons01/painting.svg") no-repeat;
+    background-size:  contain;
+    border-color: transparent;
+}
+.bathtub{
+    background: transparent url("/icons01/bathtub.svg") no-repeat;
+    background-size: 93%;
+    border-color: transparent;
+    background-position: 50% 59%;
+}
+.stove{
+    background: transparent url(/icons01/stove.svg) no-repeat;
+    background-size: 80%;
+    border-color: transparent;
+    background-position: 51% 100%;
+}
+.cat{
+    background: transparent url(/icons01/cat.svg) no-repeat;
+    background-size: 100%;
+    border-color: transparent;
+}
+
+.dog{
+    background: transparent url(/icons01/dog.svg) no-repeat;
+    background-size: 100%;
+    border-color: transparent;
+}
+.parrot{
+    background: transparent url(/icons01/parrot.svg) no-repeat;
+    background-size: 100%;
+    border-color: transparent;
+}
+.car {
+    background: transparent url("/icons01/car.svg") no-repeat;
+    background-size: 103%;
+    border-color: transparent;
+    background-position: 51% 40%;
+}
+.tree {
+    background: transparent url("/icons01/tree.svg") no-repeat;
+    background-size: 103%;
+    border-color: transparent;
+    background-position: 51% 40%;
+}

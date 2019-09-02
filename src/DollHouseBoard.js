@@ -1,34 +1,36 @@
 import React from 'react';
 import Card from "./Card";
 import "./DollHouseBoard.css";
+import "./DollHouseTheme01.css";
 import logo from "./dollhouse-and-write.png";
+import { relative } from 'path';
 
 export const CARDS = [
     { id: 0, q:1, name: "permit", w: 12, h: 9 },
-
     { id: 1, q:1, name: "roof", w: 3, h: 1 },
+
     { id: 2, q:3, name: "small-room", w: 3, h: 3 },
     { id: 3, q:3, name: "medium-room", w: 5, h: 3 },
     { id: 4, q:3, name: "big-room", w: 7, h: 3 },
     { id: 5, q:3, name: "tall-room", w: 3, h: 6 },
     { id: 6, q:4, name: "doll", w: 1, h: 2 },
 
-    { id: 7, q:1, name: "toilet", w: 1, h: 1 },
+    { id: 7, q:1, name: "toilet", w: 1, h: 2 },
     { id: 8, q:1, name: "shower", w: 1, h: 3 },
-    { id: 9, q:1, name: "bathtub", w: 3, h: 1 },
+    { id: 9, q:1, name: "bathtub", w: 2, h: 1 },
 
     { id: 10, q:1, name: "bed", w: 3, h: 1 },
     { id: 11, q:1, name: "tv", w: 1, h: 1 },
 
-    { id: 12, q:1, name: "coach", w: 3, h: 1 },
-    { id: 13, q:1, name: "table", w: 3, h: 2 },
-    { id: 14, q:1, name: "big-tv", w: 2, h: 1 },
+    { id: 12, q:1, name: "sofa", w: 3, h: 2 },
+    { id: 13, q:1, name: "bookshelf", w: 2, h: 2 },
+    { id: 14, q:1, name: "toy", w: 1, h: 1 },
 
     { id: 15, q:1, name: "stove", w: 2, h: 2 },
-    { id: 16, q:1, name: "kitchen-table", w: 2, h: 2 },
+    { id: 16, q:1, name: "kitchen-table", w: 2, h: 1 },
 
     { id: 16, q:1, name: "bench", w: 2, h: 1 },
-    { id: 17, q:1, name: "plant", w: 1, h: 2 },
+    { id: 17, q:1, name: "plant", w: 1, h: 1 },
     { id: 18, q:2, name: "painting", w: 1, h: 1 },
 
     { id: 19, q:1, name: "car", w: 3, h: 2 },
@@ -37,6 +39,7 @@ export const CARDS = [
 
     { id: 21, q:3, name: "dog", w: 1, h: 1 },
     { id: 22, q:1, name: "parrot", w: 1, h: 1 },
+    { id: 23, q:1, name: "tree", w: 2, h: 3 },
 
 
 
@@ -106,6 +109,7 @@ export default class DollHouseBoard extends React.Component {
                 <div>{c.id}</div>
                 <div>{c.name}</div>
                 <div>{c.w}x{c.h}</div>
+                <div className={"room "+c.name}></div>
             </div>
         ));
 

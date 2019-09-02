@@ -1,12 +1,12 @@
 .card {
-    width: 80px;
-    height: calc(80px*88/63);
-    border: 1px black solid;
+    width: calc((80-4)*1px);
+    height: calc((80-4)*(88/63)*1px);
+    border: 4px rgba(0,0,0,0.5) solid;
     padding: 2px;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 .card.selected{
-    border: 1px red solid;
+    border: 4px rgb(255,0,0,0.5) solid;
     font-weight: bold;
     background-color: lightpink;
 }

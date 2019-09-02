@@ -26,7 +26,8 @@
 }
 
 #paper {
-    border: 4px lightslategray solid;
+    border: 8px lightslategray solid;
+    border-radius: 12px;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -66,70 +67,3 @@
     grid-area: deck;
 }
 
-
-.room{
-    position: absolute;
-    background-color: lightpink;
-    border: 8px solid rgba(0,0,0,0.3);
-    background-clip: border-box;
-}
-
-.permit {
-    border-style: dotted;
-    background-color: rgba(255,255,200,0.4);
-}
-
-.roof{
-    background-color: rgba(155,0,0,1);
-}
-.small-room{
-    background-color: rgba(255,0,0,0.2);
-}
-.medium-room{
-    background-color: rgba(255,0,0,0.4);
-}
-.big-room{
-    background-color: rgba(255,0,0,0.6);
-}
-.tall-room{
-    background-color: rgba(255,0,0,0.8);
-}
-.doll{
-    background-color: rgba(255,255,255,1);
-}
-.toilet{
-    background-color: rgba(255,255,255,1);
-}
-.shower{
-    background-color: rgba(255,255,255,1);
-}
-.bed{
-    background-color: rgb(255, 196, 1);
-}
-.tv{
-    background-color: rgb(255, 196, 1);
-}
-.coach{
-    background-color: rgb(255, 196, 1);
-}
-.table{
-    background-color: rgb(255, 196, 1);
-}
-.big-tv{
-    background-color: rgb(255, 196, 1);
-}
-.stove{
-    background-color: rgb(146, 146, 146);
-}
-.kitchen-table{
-    background-color: rgb(146, 146, 146);
-}
-.bench{
-    background-color: rgb(167, 216, 155);
-}
-.plant{
-    background-color: rgb(0, 255, 0);
-}
-.painting{
-    background-color: rgb(255, 0, 255);
-}
