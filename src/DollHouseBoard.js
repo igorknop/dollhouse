@@ -3,6 +3,8 @@ import Card from "./Card";
 import "./DollHouseBoard.css";
 import "./DollHouseTheme01.css";
 import logo from "./dollhouse-and-write.png";
+import cat from "../public/icons01/cat.svg";
+
 import { relative } from 'path';
 
 export const CARDS = [
