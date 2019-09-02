@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://igorknop.github.io/dollhouse/",
-  "servedPath": "dollhouse/",
+  "start_url": ".",
   "dependencies": {
     "boardgame.io": "^0.32.1",
     "react": "^16.9.0",
