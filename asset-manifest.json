@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/dollhouse/static/css/main.3a70516f.chunk.css",
-    "main.js": "/dollhouse/static/js/main.7d138991.chunk.js",
-    "main.js.map": "/dollhouse/static/js/main.7d138991.chunk.js.map",
+    "main.css": "/dollhouse/static/css/main.db40cd6b.chunk.css",
+    "main.js": "/dollhouse/static/js/main.5cc55255.chunk.js",
+    "main.js.map": "/dollhouse/static/js/main.5cc55255.chunk.js.map",
     "runtime~main.js": "/dollhouse/static/js/runtime~main.55bdf1e3.js",
     "runtime~main.js.map": "/dollhouse/static/js/runtime~main.55bdf1e3.js.map",
-    "static/js/2.f46bcd4a.chunk.js": "/dollhouse/static/js/2.f46bcd4a.chunk.js",
-    "static/js/2.f46bcd4a.chunk.js.map": "/dollhouse/static/js/2.f46bcd4a.chunk.js.map",
+    "static/js/2.e50af742.chunk.js": "/dollhouse/static/js/2.e50af742.chunk.js",
+    "static/js/2.e50af742.chunk.js.map": "/dollhouse/static/js/2.e50af742.chunk.js.map",
     "index.html": "/dollhouse/index.html",
-    "precache-manifest.3aa99e0dea926e64d18019c7d78522bd.js": "/dollhouse/precache-manifest.3aa99e0dea926e64d18019c7d78522bd.js",
+    "precache-manifest.fb7fe73603836b891001dadd62772fb6.js": "/dollhouse/precache-manifest.fb7fe73603836b891001dadd62772fb6.js",
     "service-worker.js": "/dollhouse/service-worker.js",
-    "static/css/main.3a70516f.chunk.css.map": "/dollhouse/static/css/main.3a70516f.chunk.css.map",
+    "static/css/main.db40cd6b.chunk.css.map": "/dollhouse/static/css/main.db40cd6b.chunk.css.map",
+    "static/media/DollHouseTheme01.css": "/dollhouse/static/media/tv.7bd0df95.svg",
+    "static/media/cat.svg": "/dollhouse/static/media/cat.02700702.svg",
     "static/media/dollhouse-and-write.png": "/dollhouse/static/media/dollhouse-and-write.c3c0d1f1.png"
   }
 }
