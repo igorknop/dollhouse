@@ -2,11 +2,13 @@
   "name": "dollhouse",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://igorknop.github.io/dollhouse",
+  "homepage": "http://igorknop.github.io/dollhouse/",
+  "servedPath": "dollhouse/",
   "dependencies": {
     "boardgame.io": "^0.32.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1"
   },
   "scripts": {
