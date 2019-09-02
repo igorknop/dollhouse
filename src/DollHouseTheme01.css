@@ -35,13 +35,13 @@
     background-position: 37% 110%;
 }
 .toilet{
-    background: transparent url(/icons01/toilet.svg) no-repeat;
+    background: transparent url('/icons01/toilet.svg') no-repeat;
     background-size: 150%;
     border-color: transparent;
     background-position: 51% 100%;
 }
 .shower{
-    background: transparent url(/icons01/shower.svg) no-repeat;
+    background: transparent url('/icons01/shower.svg') no-repeat;
     background-size: 80px;
     border-color: transparent;
     background-position: 51% 100%;
@@ -54,7 +54,7 @@
 }
 
 .tv{
-    background: transparent url(/icons01/tv.svg) no-repeat;
+    background: transparent url('/icons01/tv.svg') no-repeat;
     background-size: 123%;
     border-color: transparent;
     background-position: 0% 98%;
@@ -92,7 +92,7 @@
     background-position: 50% 59%;
 }
 .plant{
-    background: transparent url(/icons01/plant.svg) no-repeat;
+    background: transparent url('/icons01/plant.svg') no-repeat;
     background-size: 100%;
     border-color: transparent;
     background-position: 51% 100%;
@@ -109,24 +109,24 @@
     background-position: 50% 59%;
 }
 .stove{
-    background: transparent url(/icons01/stove.svg) no-repeat;
+    background: transparent url("/icons01/stove.svg") no-repeat;
     background-size: 80%;
     border-color: transparent;
     background-position: 51% 100%;
 }
 .cat{
-    background: transparent url(/icons01/cat.svg) no-repeat;
+    background: transparent url("/icons01/cat.svg") no-repeat;
     background-size: 100%;
     border-color: transparent;
 }
 
 .dog{
-    background: transparent url(/icons01/dog.svg) no-repeat;
+    background: transparent url("/icons01/dog.svg") no-repeat;
     background-size: 100%;
     border-color: transparent;
 }
 .parrot{
-    background: transparent url(/icons01/parrot.svg) no-repeat;
+    background: transparent url("/icons01/parrot.svg") no-repeat;
     background-size: 100%;
     border-color: transparent;
 }
