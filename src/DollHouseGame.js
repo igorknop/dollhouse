@@ -54,4 +54,14 @@ export default class DollHouseGame {
             this.addRoomToTree(room, child);
         }
     }
+
+    countSharedWalls(a, b) {
+        let sharedWalls = 0;
+        if (a.c === b.c) sharedWalls++;
+        if (a.l === b.l) sharedWalls++;
+        if (a.c + a.w - 1 === b.c + b.w - 1) sharedWalls++;
+        if (a.l - a.h + 1 === b.l - b.w + 1) sharedWalls++;
+        return sharedWalls;
+    }
+
 }

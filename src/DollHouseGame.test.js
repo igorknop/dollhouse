@@ -172,3 +172,26 @@ it('should throw if a room collided with a sibling', () => {
   expect(game.rooms.indexOf(roomD)).toBe(-1);
 
 });
+
+it('should count shared walls', () => {
+  const game = new DollHouseGame();
+
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], type:"permit"};
+  const roomB = {l:9, c:0, w:5, h:3, rooms:[], type:"bathroom"};
+  const roomC = {l:9, c:0, w:2, h:1, rooms:[], type:"bathroom"};
+  const roomD = {l:9, c:3, w:2, h:1, rooms:[], type:"bathroom"};
+  const roomE = {l:0, c:5, w:2, h:2, rooms:[], type:"bathroom"};
+  const roomF = {l:0, c:5, w:2, h:2, rooms:[], type:"bathroom"};
+  expect(game.countSharedWalls(roomA, roomB)).toBe(2);
+  expect(game.countSharedWalls(roomA, roomC)).toBe(2);
+  expect(game.countSharedWalls(roomA, roomD)).toBe(1);
+  expect(game.countSharedWalls(roomA, roomE)).toBe(0);
+  expect(game.countSharedWalls(roomB, roomC)).toBe(2);
+  expect(game.countSharedWalls(roomB, roomD)).toBe(2);
+  expect(game.countSharedWalls(roomB, roomE)).toBe(0);
+  expect(game.countSharedWalls(roomC, roomD)).toBe(1);
+  expect(game.countSharedWalls(roomC, roomE)).toBe(0);
+  expect(game.countSharedWalls(roomD, roomE)).toBe(0);
+  expect(game.countSharedWalls(roomE, roomF)).toBe(4);
+
+});
