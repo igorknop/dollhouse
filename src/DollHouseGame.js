@@ -28,6 +28,9 @@ export default class DollHouseGame {
         if(child === null){
             container.rooms.push(room);
             room.container = container;
+            if(container.type === undefined){
+                container.type = room.type;
+            }
         }else{
             this.addRoomToTree(room, child);
         }

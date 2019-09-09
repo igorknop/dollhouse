@@ -35,10 +35,10 @@ it('should have the root set to firsto room added', () => {
 
 it('should return true if room A is inside room B', () => {
   const game = new DollHouseGame();
-  const roomA  = {l:9, c:0, w:10, h:10, rooms:[],container:null};
-  const roomB = {l:5, c:3, w:3, h:2, rooms:[],container:null};
-  const roomC = {l:5, c:9, w:3, h:2, rooms:[],container:null};
-  const roomD = {l:-2, c:0, w:3, h:2, rooms:[],container:null};
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
+  const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
+  const roomC = {l:5, c:9, w:3, h:2, rooms:[]};
+  const roomD = {l:-2, c:0, w:3, h:2, rooms:[]};
   expect(game.isInside(roomB, roomA)).toBeTruthy();
   expect(game.isInside(roomA, roomB)).toBeFalsy();
   expect(game.isInside(roomC, roomB)).toBeFalsy();
@@ -48,8 +48,8 @@ it('should return true if room A is inside room B', () => {
 it('should have the room added to container room', () => {
   const game = new DollHouseGame();
 
-  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], container:null};
-  const roomB = {l:5, c:3, w:3, h:2, rooms:[], container:null};
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
+  const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
   expect(roomA.rooms.length).toBe(0);
   game.addRoom(roomA);
   game.addRoom(roomB);
@@ -62,9 +62,9 @@ it('should have the room added to container room', () => {
 it('should have the room added tree', () => {
   const game = new DollHouseGame();
 
-  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], container:null};
-  const roomB = {l:5, c:3, w:5, h:3, rooms:[], container:null};
-  const roomC = {l:5, c:3, w:3, h:2, rooms:[], container:null};
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
+  const roomB = {l:5, c:3, w:5, h:3, rooms:[]};
+  const roomC = {l:5, c:3, w:3, h:2, rooms:[]};
   expect(roomA.rooms.length).toBe(0);
   game.addRoom(roomA);
   game.addRoom(roomB);
@@ -75,8 +75,42 @@ it('should have the room added tree', () => {
   expect(roomA.rooms[0]).toBe(roomB);
   expect(roomB.rooms[0]).toBe(roomC);
   expect(roomC.rooms.length).toBe(0);
-  expect(roomA.container).toBe(null);
+  expect(roomA.container).toBeUndefined();
   expect(roomB.container).toBe(roomA);
   expect(roomC.container).toBe(roomB);
 
 });
+
+it('should have the room added tree with multiple rooms', () => {
+  const game = new DollHouseGame();
+
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
+  const roomB = {l:0, c:9, w:5, h:3, rooms:[]};
+  const roomC = {l:5, c:9, w:5, h:3, rooms:[]};
+  const roomD = {l:5, c:9, w:3, h:2, rooms:[]};
+  game.addRoom(roomA);
+  game.addRoom(roomB);
+  game.addRoom(roomC);
+  game.addRoom(roomD);
+  expect(roomA.container).toBeUndefined();
+  expect(roomB.container).toBe(roomA);
+  expect(roomC.container).toBe(roomA);
+  expect(roomD.container).toBe(roomC);
+
+});
+
+
+it('should have the room type setted if a typed room is inserted', () => {
+  const game = new DollHouseGame();
+
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], type:undefined};
+  const roomB = {l:0, c:9, w:5, h:3, rooms:[], type: "bathroom"};
+  game.addRoom(roomA);
+  game.addRoom(roomB);
+  expect(roomA.container).toBeUndefined();
+  expect(roomB.container).toBe(roomA);
+  expect(roomB.type).toEqual(roomA.type);
+
+  expect(roomA.type).toBe("bathroom");
+});
+
