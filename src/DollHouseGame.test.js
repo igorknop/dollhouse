@@ -135,7 +135,7 @@ it('should throw if room differend typed room is inserted', () => {
 
 });
 
-it('should return true if room A colides with room B', () => {
+it('should return true if room A collides with room B', () => {
   const game = new DollHouseGame();
   const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
   const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
@@ -147,4 +147,28 @@ it('should return true if room A colides with room B', () => {
   expect(game.isCollided(roomC, roomB)).toBeTruthy();
   expect(game.isCollided(roomD, roomB)).toBeFalsy();
   expect(game.isCollided(roomD, roomC)).toBeFalsy();
+});
+
+it('should throw if a room collided with a sibling', () => {
+  const game = new DollHouseGame();
+
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], type:"permit"};
+  const roomB = {l:0, c:0, w:5, h:3, rooms:[], type:"bathroom"};
+  const roomC = {l:0, c:0, w:2, h:1, rooms:[], type:"bathroom"};
+  const roomD = {l:0, c:1, w:2, h:1, rooms:[], type:"bathroom"};
+  const roomE = {l:0, c:3, w:2, h:1, rooms:[], type:"bathroom"};
+  game.addRoom(roomA);
+  game.addRoom(roomB);
+  game.addRoom(roomC);
+  expect(()=>{
+    game.addRoom(roomD);
+  }).toThrow();
+  game.addRoom(roomE);
+  expect(roomA.container).toBeUndefined();
+  expect(roomB.container).toBe(roomA);
+  expect(roomC.container).toBe(roomB);
+  expect(roomD.container).toBeUndefined();
+  expect(roomE.container).toBe(roomB);
+  expect(game.rooms.indexOf(roomD)).toBe(-1);
+
 });

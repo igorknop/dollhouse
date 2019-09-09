@@ -20,21 +20,28 @@ export default class DollHouseGame {
         return ((a.c >= b.c) && (a.c + a.w - 1 <= b.c + b.w - 1)) && ((a.l <= b.l) && (a.l - a.h + 1 >= b.l - b.h + 1));
     }
     isCollided(a, b) {
-        if (a.c > b.c+b.w-1) return false;
-        if (a.c+a.w-1 < b.c) return false;
-        if (a.l < b.l-b.h+1) return false;
-        if (a.l-a.h+1 > b.l) return false;
+        if (a.c > b.c + b.w - 1) return false;
+        if (a.c + a.w - 1 < b.c) return false;
+        if (a.l < b.l - b.h + 1) return false;
+        if (a.l - a.h + 1 > b.l) return false;
         return true;
     }
 
     addRoomToTree(room, container) {
         let child = null;
+        let isCollided = false;
         container.rooms.forEach(childRoom => {
+            if (this.isCollided(room, childRoom)) {
+                isCollided = true;
+            }
             if (this.isInside(room, childRoom)) {
                 child = childRoom;
             }
         });
         if (child === null) {
+            if (isCollided) {
+                throw new Error(`Cannot add a room colliding with another one!`);
+            }
             if (container.type === undefined) {
                 container.type = room.type;
             }
