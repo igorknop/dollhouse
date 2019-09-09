@@ -114,3 +114,23 @@ it('should have the room type setted if a typed room is inserted', () => {
   expect(roomA.type).toBe("bathroom");
 });
 
+it('should throw if room differend typed room is inserted', () => {
+  const game = new DollHouseGame();
+
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[], type:"permit"};
+  const roomB = {l:0, c:9, w:5, h:3, rooms:[], type:"bathroom"};
+  const roomC = {l:0, c:9, w:2, h:1, rooms:[], type:"kitchen"};
+  const roomD = {l:0, c:9, w:2, h:1, rooms:[], type:"bathroom"};
+  game.addRoom(roomA);
+  game.addRoom(roomB);
+  expect(()=>{
+    game.addRoom(roomC);
+  }).toThrow();
+  game.addRoom(roomD);
+  expect(roomA.container).toBeUndefined();
+  expect(roomB.container).toBe(roomA);
+  expect(roomD.container).toBe(roomB);
+  expect(roomC.container).toBeUndefined();
+  expect(game.rooms.indexOf(roomC)).toBe(-1);
+
+});
