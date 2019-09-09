@@ -134,3 +134,17 @@ it('should throw if room differend typed room is inserted', () => {
   expect(game.rooms.indexOf(roomC)).toBe(-1);
 
 });
+
+it('should return true if room A colides with room B', () => {
+  const game = new DollHouseGame();
+  const roomA  = {l:9, c:0, w:10, h:10, rooms:[]};
+  const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
+  const roomC = {l:6, c:3, w:3, h:2, rooms:[]};
+  const roomD = {l:9, c:0, w:1, h:1, rooms:[]};
+  expect(game.isCollided(roomB, roomA)).toBeTruthy();
+  expect(game.isCollided(roomC, roomA)).toBeTruthy();
+  expect(game.isCollided(roomD, roomA)).toBeTruthy();
+  expect(game.isCollided(roomC, roomB)).toBeTruthy();
+  expect(game.isCollided(roomD, roomB)).toBeFalsy();
+  expect(game.isCollided(roomD, roomC)).toBeFalsy();
+});
