@@ -1,4 +1,5 @@
 import DollHouseGame from "./DollHouseGame"
+import DollHouseBoard from "./DollHouseBoard";
 
 
 it('should have a root room null on create', () => {
@@ -39,10 +40,10 @@ it('should return true if room A is inside room B', () => {
   const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
   const roomC = {l:5, c:9, w:3, h:2, rooms:[]};
   const roomD = {l:-2, c:0, w:3, h:2, rooms:[]};
-  expect(game.isInside(roomB, roomA)).toBeTruthy();
-  expect(game.isInside(roomA, roomB)).toBeFalsy();
-  expect(game.isInside(roomC, roomB)).toBeFalsy();
-  expect(game.isInside(roomD, roomB)).toBeFalsy();
+  expect(DollHouseGame.isInside(roomB, roomA)).toBeTruthy();
+  expect(DollHouseGame.isInside(roomA, roomB)).toBeFalsy();
+  expect(DollHouseGame.isInside(roomC, roomB)).toBeFalsy();
+  expect(DollHouseGame.isInside(roomD, roomB)).toBeFalsy();
 });
 
 it('should have the room added to container room', () => {
@@ -141,12 +142,12 @@ it('should return true if room A collides with room B', () => {
   const roomB = {l:5, c:3, w:3, h:2, rooms:[]};
   const roomC = {l:6, c:3, w:3, h:2, rooms:[]};
   const roomD = {l:9, c:0, w:1, h:1, rooms:[]};
-  expect(game.isCollided(roomB, roomA)).toBeTruthy();
-  expect(game.isCollided(roomC, roomA)).toBeTruthy();
-  expect(game.isCollided(roomD, roomA)).toBeTruthy();
-  expect(game.isCollided(roomC, roomB)).toBeTruthy();
-  expect(game.isCollided(roomD, roomB)).toBeFalsy();
-  expect(game.isCollided(roomD, roomC)).toBeFalsy();
+  expect(DollHouseGame.isCollided(roomB, roomA)).toBeTruthy();
+  expect(DollHouseGame.isCollided(roomC, roomA)).toBeTruthy();
+  expect(DollHouseGame.isCollided(roomD, roomA)).toBeTruthy();
+  expect(DollHouseGame.isCollided(roomC, roomB)).toBeTruthy();
+  expect(DollHouseGame.isCollided(roomD, roomB)).toBeFalsy();
+  expect(DollHouseGame.isCollided(roomD, roomC)).toBeFalsy();
 });
 
 it('should throw if a room collided with a sibling', () => {
@@ -174,7 +175,6 @@ it('should throw if a room collided with a sibling', () => {
 });
 
 it('should count shared walls', () => {
-  const game = new DollHouseGame();
 
   const roomA  = {l:9, c:0, w:10, h:10, rooms:[], type:"permit"};
   const roomB = {l:9, c:0, w:5, h:3, rooms:[], type:"bathroom"};
@@ -182,16 +182,16 @@ it('should count shared walls', () => {
   const roomD = {l:9, c:3, w:2, h:1, rooms:[], type:"bathroom"};
   const roomE = {l:0, c:5, w:2, h:2, rooms:[], type:"bathroom"};
   const roomF = {l:0, c:5, w:2, h:2, rooms:[], type:"bathroom"};
-  expect(game.countSharedWalls(roomA, roomB)).toBe(2);
-  expect(game.countSharedWalls(roomA, roomC)).toBe(2);
-  expect(game.countSharedWalls(roomA, roomD)).toBe(1);
-  expect(game.countSharedWalls(roomA, roomE)).toBe(0);
-  expect(game.countSharedWalls(roomB, roomC)).toBe(2);
-  expect(game.countSharedWalls(roomB, roomD)).toBe(2);
-  expect(game.countSharedWalls(roomB, roomE)).toBe(0);
-  expect(game.countSharedWalls(roomC, roomD)).toBe(1);
-  expect(game.countSharedWalls(roomC, roomE)).toBe(0);
-  expect(game.countSharedWalls(roomD, roomE)).toBe(0);
-  expect(game.countSharedWalls(roomE, roomF)).toBe(4);
+  expect(DollHouseGame.countSharedWalls(roomA, roomB)).toBe(2);
+  expect(DollHouseGame.countSharedWalls(roomA, roomC)).toBe(2);
+  expect(DollHouseGame.countSharedWalls(roomA, roomD)).toBe(1);
+  expect(DollHouseGame.countSharedWalls(roomA, roomE)).toBe(0);
+  expect(DollHouseGame.countSharedWalls(roomB, roomC)).toBe(2);
+  expect(DollHouseGame.countSharedWalls(roomB, roomD)).toBe(2);
+  expect(DollHouseGame.countSharedWalls(roomB, roomE)).toBe(0);
+  expect(DollHouseGame.countSharedWalls(roomC, roomD)).toBe(1);
+  expect(DollHouseGame.countSharedWalls(roomC, roomE)).toBe(0);
+  expect(DollHouseGame.countSharedWalls(roomD, roomE)).toBe(0);
+  expect(DollHouseGame.countSharedWalls(roomE, roomF)).toBe(4);
 
 });

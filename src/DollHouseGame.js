@@ -1,3 +1,5 @@
+import DollHouseBoard from "./DollHouseBoard";
+
 export default class DollHouseGame {
     constructor() {
         this.rooms = [];
@@ -5,6 +7,9 @@ export default class DollHouseGame {
     }
 
     addRoom(room) {
+        if(room.rooms === undefined){
+            room.rooms = [];
+        }
         if (this.root == null) {
             this.root = room;
             this.rooms.push(room);
@@ -16,10 +21,10 @@ export default class DollHouseGame {
         }
     }
 
-    isInside(a, b) {
+    static isInside(a, b) {
         return ((a.c >= b.c) && (a.c + a.w - 1 <= b.c + b.w - 1)) && ((a.l <= b.l) && (a.l - a.h + 1 >= b.l - b.h + 1));
     }
-    isCollided(a, b) {
+    static isCollided(a, b) {
         if (a.c > b.c + b.w - 1) return false;
         if (a.c + a.w - 1 < b.c) return false;
         if (a.l < b.l - b.h + 1) return false;
@@ -31,10 +36,10 @@ export default class DollHouseGame {
         let child = null;
         let isCollided = false;
         container.rooms.forEach(childRoom => {
-            if (this.isCollided(room, childRoom)) {
+            if (DollHouseGame.isCollided(room, childRoom)) {
                 isCollided = true;
             }
-            if (this.isInside(room, childRoom)) {
+            if (DollHouseGame.isInside(room, childRoom)) {
                 child = childRoom;
             }
         });
@@ -55,7 +60,7 @@ export default class DollHouseGame {
         }
     }
 
-    countSharedWalls(a, b) {
+    static countSharedWalls(a, b) {
         let sharedWalls = 0;
         if (a.c === b.c) sharedWalls++;
         if (a.l === b.l) sharedWalls++;
