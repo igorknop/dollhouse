@@ -3,13 +3,12 @@ import Card from "./Card";
 import "./DollHouseBoard.css";
 import "./DollHouseTheme01.css";
 import logo from "./dollhouse-and-write.png";
-import cat from "./icons01/cat.svg";
+import DollHouseGame from './DollHouseGame';
 
-import { relative } from 'path';
 
 export const CARDS = [
-    { id: 0, q:1, name: "permit", w: 12, h: 9 },
-    { id: 1, q:1, name: "roof", w: 3, h: 1 },
+    { id: 0, q:1, name: "permit", w: 12, h: 9 , type:"permit"},
+    { id: 1, q:1, name: "roof", w: 3, h: 1, type:"roof" },
 
     { id: 2, q:3, name: "small-room", w: 3, h: 3 },
     { id: 3, q:3, name: "medium-room", w: 5, h: 3 },
@@ -17,19 +16,19 @@ export const CARDS = [
     { id: 5, q:3, name: "tall-room", w: 3, h: 6 },
     { id: 6, q:4, name: "doll", w: 1, h: 2 },
 
-    { id: 7, q:1, name: "toilet", w: 1, h: 2 },
-    { id: 8, q:1, name: "shower", w: 1, h: 3 },
-    { id: 9, q:1, name: "bathtub", w: 2, h: 1 },
+    { id: 7, q:1, name: "toilet", w: 1, h: 2 , type:"bath"},
+    { id: 8, q:1, name: "shower", w: 1, h: 3 , type:"bath"},
+    { id: 9, q:1, name: "bathtub", w: 2, h: 1 , type:"bath"},
 
-    { id: 10, q:1, name: "bed", w: 3, h: 1 },
-    { id: 11, q:1, name: "tv", w: 1, h: 1 },
+    { id: 10, q:1, name: "bed", w: 3, h: 1 ,type:"bedroom"},
+    { id: 11, q:1, name: "tv", w: 1, h: 1 ,type:"bedroom"},
 
-    { id: 12, q:1, name: "sofa", w: 3, h: 2 },
-    { id: 13, q:1, name: "bookshelf", w: 2, h: 2 },
-    { id: 14, q:1, name: "toy", w: 1, h: 1 },
+    { id: 12, q:1, name: "sofa", w: 3, h: 2 , type:"livingroom"},
+    { id: 13, q:1, name: "bookshelf", w: 2, h: 2 , type:"livingroom"},
+    { id: 14, q:1, name: "toy", w: 1, h: 1 , type:"livingroom"},
 
-    { id: 15, q:1, name: "stove", w: 2, h: 2 },
-    { id: 16, q:1, name: "kitchen-table", w: 2, h: 1 },
+    { id: 15, q:1, name: "stove", w: 2, h: 2 , type:"kitchen"},
+    { id: 16, q:1, name: "kitchen-table", w: 2, h: 1 , type:"kitchen"},
 
     { id: 16, q:1, name: "bench", w: 2, h: 1 },
     { id: 17, q:1, name: "plant", w: 1, h: 1 },
@@ -37,10 +36,10 @@ export const CARDS = [
 
     { id: 19, q:1, name: "car", w: 3, h: 2 },
 
-    { id: 20, q:2, name: "cat", w: 1, h: 1 },
+    { id: 20, q:2, name: "cat", w: 1, h: 1 , type:"bedroom"},
 
-    { id: 21, q:3, name: "dog", w: 1, h: 1 },
-    { id: 22, q:1, name: "parrot", w: 1, h: 1 },
+    { id: 21, q:3, name: "dog", w: 1, h: 1 , type:"livingroom"},
+    { id: 22, q:1, name: "parrot", w: 1, h: 1 , type:"livingroom"},
     { id: 23, q:1, name: "tree", w: 2, h: 3 },
 
 
@@ -51,7 +50,7 @@ export const CARDS = [
 ];
 
 
-export const [ROWS, COLS, SIZE] = [11, 12, 40];
+export const [ROWS, COLS, SIZE] = [11, 14, 40];
 export default class DollHouseBoard extends React.Component {
     onClick(e) {
         const rect = e.currentTarget.getBoundingClientRect();
@@ -104,7 +103,7 @@ export default class DollHouseBoard extends React.Component {
                 left: (r.c * SIZE - 8) + "px",
                 top: (r.r * SIZE - 8) + "px",
                 backgroundColor: r.color,
-            }} className={`room ${r.name}`}></div>);
+            }} className={`room ${r.name} ${r.type}`}></div>);
 
         let cards = CARDS.map((c, k) => (
             <div className="card" key={"card" + c.id + k} onClick={() => { this.onCardClick(c.id) }}>

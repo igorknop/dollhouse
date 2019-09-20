@@ -1,6 +1,7 @@
 import { Client } from 'boardgame.io/react';
 import { Game } from 'boardgame.io/core';
 import DollHouseBoard, { ROWS, COLS, SIZE, CARDS } from "./DollHouseBoard";
+import DollHouseGame from './DollHouseGame';
 
 
 const DollHouse = Game({
@@ -16,15 +17,17 @@ const DollHouse = Game({
     card3: 3,
     deck: createDeck(CARDS),
     discard: [],
-    reserve: [Object.assign({ c: 1, r: 2 }, CARDS[0])],
+    reserve: [{...{ c: 2, r: 2 }, ...CARDS[0]}],
     scolor: "lightpink"
   }),
 
   moves: {
     clickCell(G, ctx, R, C) {
+      let game = new DollHouseGame(G.reserve);
       const card = Object.assign({ r: R - CARDS[G.cn].h + 1, c: C }, CARDS[G.cn]);
       console.log("clickcell", CARDS[G.cn], card);
       console.log(R, C);
+      game.addRoom(card);
       G.reserve.push(card);
     },
     clickCard(G, ctx, cn, s = 0) {

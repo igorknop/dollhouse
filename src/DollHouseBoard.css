@@ -67,3 +67,13 @@
     grid-area: deck;
 }
 
+.kitchen{
+    background-color: yellow;
+}
+.bedroom{
+    background-color: orange;
+}
+.bath{
+    background-color: lightblue;
+}
+
